@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Background Premium Gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4f46e5" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffdbac" />
+      <stop offset="100%" stop-color="#f1c27d" />
+    </linearGradient>
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+  </defs>
+
+  <!-- Circular Wrapper -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGrad)" />
+  
+  <!-- Subtle decorative grid -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-dasharray="6,4" />
+
+  <!-- Avatar body -->
+  <!-- Suit / Shoulders -->
+  <path d="M45,155 C45,130 65,120 100,120 C135,120 155,130 155,155 L155,190 L45,190 Z" fill="url(#suitGrad)" />
+  
+  <!-- White Collar Shirt -->
+  <path d="M80,120 L120,120 L110,135 L90,135 Z" fill="#ffffff" />
+  <path d="M98,135 L102,135 L100,150 Z" fill="#4f46e5" /> <!-- Indigo Tie -->
+
+  <!-- Neck -->
+  <rect x="88" y="100" width="24" height="22" rx="4" fill="url(#skinGrad)" />
+  
+  <!-- Head -->
+  <circle cx="100" cy="72" r="32" fill="url(#skinGrad)" />
+
+  <!-- Premium Hair (Modern crop) -->
+  <path d="M66,66 C66,45 80,38 100,38 C120,38 134,45 134,66 C134,69 130,68 128,64 C120,56 112,58 100,58 C88,58 80,56 72,64 C70,68 66,69 66,66 Z" fill="#0f172a" />
+  <!-- Sideburns -->
+  <path d="M67,65 L69,78 L73,74 Z" fill="#0f172a" />
+  <path d="M133,65 L131,78 L127,74 Z" fill="#0f172a" />
+
+  <!-- Eyes (Stylized tech glasses) -->
+  <!-- Frames -->
+  <rect x="74" y="66" width="22" height="14" rx="3" fill="none" stroke="#f59e0b" stroke-width="2.5" />
+  <rect x="104" y="66" width="22" height="14" rx="3" fill="none" stroke="#f59e0b" stroke-width="2.5" />
+  <line x1="96" y1="72" x2="104" y2="72" stroke="#f59e0b" stroke-width="2.5" />
+
+  <!-- Smiling mouth -->
+  <path d="M92,90 Q100,96 108,90" fill="none" stroke="#475467" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Tech code graphics floating -->
+  <text x="22" y="60" fill="rgba(255,255,255,0.25)" font-family="monospace" font-size="14" font-weight="bold">&lt;/&gt;</text>
+  <text x="150" y="110" fill="rgba(255,255,255,0.25)" font-family="monospace" font-size="14" font-weight="bold">{}</text>
+  <text x="24" y="115" fill="rgba(255,255,255,0.25)" font-family="monospace" font-size="11" font-weight="bold">py</text>
+  <text x="150" y="55" fill="rgba(255,255,255,0.25)" font-family="monospace" font-size="11" font-weight="bold">web</text>
+</svg>

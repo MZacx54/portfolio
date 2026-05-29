@@ -1,0 +1,48 @@
+name: Deploy Portfolio to cPanel
+
+on:
+  push:
+    branches:
+      - main  # Triggers on every push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to OrangeHost cPanel via SSH
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy to cPanel server via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.CPANEL_HOST }}
+          username: ${{ secrets.CPANEL_USERNAME }}
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          port: 22
+          script: |
+            echo "=== Starting Portfolio Deployment ==="
+
+            # Navigate to the application directory
+            cd ~/portfolio
+
+            # Pull latest code from GitHub
+            git pull origin main
+
+            # Activate the virtual environment created by cPanel
+            source ~/virtualenv/portfolio/3.x/bin/activate
+
+            # Install or update dependencies
+            pip install -r requirements.txt
+
+            # Run database migrations
+            python manage.py migrate --noinput
+
+            # Collect static files
+            python manage.py collectstatic --noinput
+
+            # Touch the WSGI file to trigger a Passenger restart
+            touch passenger_wsgi.py
+
+            echo "=== Deployment Complete! ==="

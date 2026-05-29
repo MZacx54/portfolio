@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Web Developer Portfolio of Zachariah Meshach, B.Tech. Innovative solutions and bespoke web applications.">
+    <title>{% block title %}Zachariah Meshach | Full-Stack Web Developer{% endblock %}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Modern Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'portfolio/images/avatar.svg' %}">
+</head>
+<body>
+    
+    <!-- Floating Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                Zachariah<span>Meshach</span>
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#about" class="nav-link active">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#certificates" class="nav-link">Certificates</a>
+                <a href="#contact" class="nav-btn">Get In Touch</a>
+            </nav>
+            
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>Zachariah Meshach, B.Tech.</h3>
+                <p>Innovative Full-Stack Web Developer & IT Solutions Manager</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/MZacx54" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="mailto:meshachzax@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:08021460391" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">My Skills</a></li>
+                    <li><a href="#projects">Portfolio Projects</a></li>
+                    <li><a href="#experience">Career History</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-meta">
+                <p>&copy; {% now "Y" %} Zachariah Meshach. All rights reserved.</p>
+                <p class="designed-by">Crafted with ❤️ in Python & Django</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Bundle -->
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
+</body>
+</html>

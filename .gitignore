@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+virtualenv/
+
+# Django specific
+*.log
+local_settings.py
+db.sqlite3        # Do NOT push DB — server has its own DB
+staticfiles/      # Collected static files (server generates these)
+
+# Media uploads (user-uploaded files)
+media/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Deployment helpers (no need in repo)
+portfolio_deployment.zip
+zip_project.py
