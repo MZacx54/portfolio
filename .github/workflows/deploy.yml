@@ -1,4 +1,4 @@
-name: Deploy Portfolio to cPanel
+name: Deploy Portfolio to cPanel via FTP
 
 on:
   push:
@@ -8,42 +8,23 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    name: Deploy to OrangeHost cPanel via SSH
+    name: Deploy to OrangeHost cPanel via FTP
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Deploy to cPanel server via SSH
-        uses: appleboy/ssh-action@v1.0.0
+      - name: Sync files via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          host: ${{ secrets.CPANEL_HOST }}
+          server: ${{ secrets.CPANEL_HOST }}
           username: ${{ secrets.CPANEL_USERNAME }}
-          passphrase: ${{ secrets.CPANEL_PASSWORD }}
-          key: ${{ secrets.CPANEL_SSH_KEY }}
-          port: ${{ secrets.CPANEL_PORT || '22' }}
-          script: |
-            echo "=== Starting Portfolio Deployment ==="
-
-            # Navigate to the application directory
-            cd ~/portfolio
-
-            # Pull latest code from GitHub
-            git pull origin main
-
-            # Activate the virtual environment created by cPanel
-            source ~/virtualenv/portfolio/3.x/bin/activate
-
-            # Install or update dependencies
-            pip install -r requirements.txt
-
-            # Run database migrations
-            python manage.py migrate --noinput
-
-            # Collect static files
-            python manage.py collectstatic --noinput
-
-            # Touch the WSGI file to trigger a Passenger restart
-            touch passenger_wsgi.py
-
-            echo "=== Deployment Complete! ==="
+          password: ${{ secrets.CPANEL_PASSWORD }}
+          server-dir: /portfolio/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/venv/**
+            **/.venv/**
+            **/__pycache__/**
