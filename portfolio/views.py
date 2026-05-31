@@ -38,8 +38,8 @@ def index(request):
             'degree': 'B.Tech.',
             'title': 'Innovative Full-Stack Web Developer',
             'email': 'meshachzax@gmail.com',
-            'mobile1': '08021460391',
-            'mobile2': '09064556107',
+            'mobile1': '09064556107',
+            'mobile2': '08021460391',
             'address': 'NO. 35 Adjacent Deeper Life, Sabon Kaura, ATBU Yelwa Bauchi, Bauchi State, Nigeria',
             'github': 'https://github.com/MZacx54',
             'bio': 'Innovative B.Tech Medical Biochemistry graduate turned Full-Stack Web Developer. Highly skilled in building robust back-ends using Python and Django, and styling beautiful, responsive front-ends with HTML, CSS, JavaScript, and CMS (WordPress/Elementor). Adept at project management, customer relations, and analytical problem-solving, with a results-oriented mindset that drives digital innovation.'
