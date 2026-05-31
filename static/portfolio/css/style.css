@@ -447,8 +447,9 @@ img, svg {
 }
 
 .badge-1 {
-    top: 10px;
-    left: -110px;
+    top: 50%;
+    margin-top: -22px;
+    left: -100px;
     animation: floating-badge 6s ease-in-out infinite;
 }
 
@@ -1138,6 +1139,10 @@ img, svg {
         display: block;
     }
     
+    .hero-section {
+        overflow: visible;
+    }
+    
     .hero-container {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1177,6 +1182,30 @@ img, svg {
     .footer-socials {
         justify-content: center;
     }
+    
+    /* Responsive Avatar and Badges */
+    .avatar-card {
+        width: 280px;
+        height: 280px;
+        margin: 0 auto;
+    }
+    
+    .stat-badge {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+        border-radius: var(--radius-sm);
+    }
+    
+    .badge-1 {
+        top: 50%;
+        margin-top: -18px;
+        left: -20px;
+    }
+    
+    .badge-2 {
+        bottom: 20px;
+        right: -10px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1190,5 +1219,31 @@ img, svg {
     
     .certificates-grid {
         grid-template-columns: 1fr;
+    }
+    
+    /* Small phone avatar & badge adjustments */
+    .avatar-card {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .stat-badge {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
+    .badge-1 {
+        left: -10px;
+        top: 50%;
+        margin-top: -16px;
+    }
+    
+    .badge-2 {
+        right: -5px;
+        bottom: 10px;
+    }
+    
+    .hero-visual-content {
+        overflow: visible;
     }
 }
