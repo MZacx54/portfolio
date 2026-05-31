@@ -447,8 +447,8 @@ img, svg {
 }
 
 .badge-1 {
-    top: 40px;
-    left: -40px;
+    top: 10px;
+    left: -110px;
     animation: floating-badge 6s ease-in-out infinite;
 }
 
