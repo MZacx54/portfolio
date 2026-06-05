@@ -1201,8 +1201,8 @@ img, svg {
     }
     
     .badge-1 {
-        top: 55%;
-        margin-top: -20px;
+        top: -20px;
+        margin-top: 0;
         left: -35px;
     }
     
@@ -1241,8 +1241,8 @@ img, svg {
     }
     
     .badge-1 {
-        top: 55%;
-        margin-top: -18px;
+        top: -15px;
+        margin-top: 0;
         left: -20px;
     }
     
