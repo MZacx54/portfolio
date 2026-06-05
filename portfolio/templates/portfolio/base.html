@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Professional Web Developer Portfolio of Zachariah Meshach, B.Tech. Innovative solutions and bespoke web applications.">
+    
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zachariah Meshach | Full-Stack Web Developer">
+    <meta property="og:description" content="Professional Web Developer Portfolio of Zachariah Meshach, B.Tech. Innovative solutions and bespoke web applications.">
+    <meta property="og:image" content="{% static 'portfolio/images/profile.webp' %}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Zachariah Meshach | Full-Stack Web Developer">
+    <meta property="twitter:description" content="Professional Web Developer Portfolio of Zachariah Meshach, B.Tech. Innovative solutions and bespoke web applications.">
+    <meta property="twitter:image" content="{% static 'portfolio/images/profile.webp' %}">
+
     <title>{% block title %}Zachariah Meshach | Full-Stack Web Developer{% endblock %}</title>
     
     <!-- Google Fonts -->
@@ -56,8 +69,8 @@
                 <p>Innovative Full-Stack Web Developer & IT Solutions Manager</p>
                 <div class="footer-socials">
                     <a href="https://github.com/MZacx54" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="mailto:meshachzax@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:08021460391" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                    <a href="mailto:{{ personal_info.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:{{ personal_info.mobile1 }}" aria-label="Phone"><i class="fas fa-phone"></i></a>
                 </div>
             </div>
             

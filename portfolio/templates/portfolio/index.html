@@ -44,7 +44,7 @@
                     <div class="avatar-ring">
                         <!-- Profile photo: upload as static/portfolio/images/profile.jpg -->
                         <div class="avatar-image-container">
-                            <img src="{% static 'portfolio/images/profile.png' %}"
+                            <img src="{% static 'portfolio/images/profile.webp' %}"
                                  alt="Zachariah Meshach - Full-Stack Web Developer"
                                  class="profile-photo"
                                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
@@ -598,6 +598,11 @@
                 <div class="contact-form-panel">
                     <form id="contactForm" method="post" action="{% url 'portfolio:contact_submit' %}">
                         {% csrf_token %}
+                        <!-- Honeypot Field (Spam Prevention) -->
+                        <div class="form-group-hp" style="display: none !important; position: absolute; left: -9999px;">
+                            <label for="id_website_url">Website URL (leave blank)</label>
+                            <input type="text" name="website_url" id="id_website_url" tabindex="-1" autocomplete="off">
+                        </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="id_name">Your Name</label>

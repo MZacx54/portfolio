@@ -50,9 +50,34 @@ def index(request):
 
 @require_POST
 def contact_submit(request):
+    # Spam honeypot check
+    if request.POST.get('website_url'):
+        # Silently return success to trick the bot
+        return JsonResponse({
+            'success': True,
+            'message': 'Your message has been sent successfully! Zachariah will contact you shortly.'
+        })
+
     form = ContactForm(request.POST)
     if form.is_valid():
-        form.save()
+        message_instance = form.save()
+        
+        # Email Zachariah about the new lead
+        from django.core.mail import send_mail
+        try:
+            send_mail(
+                subject=f"New Portfolio Lead: {message_instance.subject}",
+                message=f"You have received a new contact message from your portfolio website.\n\n"
+                        f"Name: {message_instance.name}\n"
+                        f"Email: {message_instance.email}\n\n"
+                        f"Message:\n{message_instance.message}",
+                from_email=None,  # Will use DEFAULT_FROM_EMAIL from settings
+                recipient_list=['meshachzax@gmail.com'],
+                fail_silently=True,
+            )
+        except Exception:
+            pass
+
         return JsonResponse({
             'success': True,
             'message': 'Your message has been sent successfully! Zachariah will contact you shortly.'

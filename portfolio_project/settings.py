@@ -5,12 +5,17 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-z*#%@x!&%-portfolio-key-1992-09-07-meshach'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-z*#%@x!&%-portfolio-key-1992-09-07-meshach')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+# Allowed Hosts configuration: open in debug, strict in production
+if DEBUG:
+    ALLOWED_HOSTS = ['*']
+else:
+    env_hosts = os.environ.get('ALLOWED_HOSTS')
+    ALLOWED_HOSTS = env_hosts.split(',') if env_hosts else ['localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
@@ -98,3 +103,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Configuration (SMTP settings for Lead alerts)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 25))
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'False') == 'True'
+EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', 'False') == 'True'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER or 'noreply@localhost')
