@@ -72,7 +72,7 @@ def contact_submit(request):
                         f"Email: {message_instance.email}\n\n"
                         f"Message:\n{message_instance.message}",
                 from_email=None,  # Will use DEFAULT_FROM_EMAIL from settings
-                recipient_list=['meshachzax@gmail.com'],
+                recipient_list=[settings.CONTACT_ALERT_EMAIL],
                 fail_silently=True,
             )
         except Exception:
