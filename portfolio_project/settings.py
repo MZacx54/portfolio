@@ -15,7 +15,15 @@ if DEBUG:
     ALLOWED_HOSTS = ['*']
 else:
     env_hosts = os.environ.get('ALLOWED_HOSTS')
-    ALLOWED_HOSTS = env_hosts.split(',') if env_hosts else ['localhost', '127.0.0.1']
+    if env_hosts:
+        ALLOWED_HOSTS = [host.strip() for host in env_hosts.split(',') if host.strip()]
+    else:
+        ALLOWED_HOSTS = [
+            'portfolio.smartbizcoach.com.ng',
+            'www.portfolio.smartbizcoach.com.ng',
+            'localhost',
+            '127.0.0.1',
+        ]
 
 # Application definition
 INSTALLED_APPS = [
@@ -30,6 +38,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,6 +105,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Media files (User uploaded resume, project screenshots)
 MEDIA_URL = 'media/'
@@ -107,9 +117,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Email Configuration (SMTP settings for Lead alerts)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 25))
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'False') == 'True'
-EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', 'False') == 'True'
+
+# Safe integer parsing for port (handles empty or invalid inputs)
+env_port = os.environ.get('EMAIL_PORT', '25')
+EMAIL_PORT = int(env_port) if env_port.strip().isdigit() else 25
+
+# Safe boolean parsing for TLS/SSL (handles 'true', 'yes', '1' case-insensitively)
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'False').strip().lower() in ('true', '1', 'yes')
+EMAIL_USE_SSL = os.environ.get('EMAIL_USE_SSL', 'False').strip().lower() in ('true', '1', 'yes')
+
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER or 'noreply@localhost')
