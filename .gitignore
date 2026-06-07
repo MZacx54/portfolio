@@ -22,6 +22,7 @@ virtualenv/
 local_settings.py
 db.sqlite3        # Do NOT push DB — server has its own DB
 staticfiles/      # Collected static files (server generates these)
+public/           # Collected static files for Passenger/Apache serving
 
 # Media uploads (user-uploaded files)
 media/
