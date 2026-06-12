@@ -64,6 +64,8 @@ def contact_submit(request):
         
         # Email Zachariah about the new lead
         from django.core.mail import send_mail
+        import logging
+        logger = logging.getLogger(__name__)
         try:
             send_mail(
                 subject=f"New Portfolio Lead: {message_instance.subject}",
@@ -73,10 +75,11 @@ def contact_submit(request):
                         f"Message:\n{message_instance.message}",
                 from_email=None,  # Will use DEFAULT_FROM_EMAIL from settings
                 recipient_list=[settings.CONTACT_ALERT_EMAIL],
-                fail_silently=True,
+                fail_silently=False,
             )
-        except Exception:
-            pass
+        except Exception as e:
+            logger.error(f"Failed to send email alert: {e}", exc_info=True)
+
 
         return JsonResponse({
             'success': True,

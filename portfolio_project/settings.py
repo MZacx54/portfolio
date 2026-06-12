@@ -126,4 +126,5 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER or 'noreply@localhost')
 
 # The inbox that receives contact form lead notifications
-CONTACT_ALERT_EMAIL = os.environ.get('CONTACT_ALERT_EMAIL', 'meshachzax@gmail.com')
+CONTACT_ALERT_EMAIL = os.environ.get('CONTACT_ALERT_EMAIL', 'smartbizcoch@gmail.com')
+
