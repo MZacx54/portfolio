@@ -110,8 +110,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Email Configuration (SMTP settings for Lead alerts)
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'portfolio.email_backend.InsecureEmailBackend'
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'localhost')
+
 
 # Safe integer parsing for port (handles empty or invalid inputs)
 env_port = os.environ.get('EMAIL_PORT', '25')
