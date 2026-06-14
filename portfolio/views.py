@@ -130,7 +130,10 @@ def download_resume(request):
 
 def test_email(request):
     from django.core.mail import send_mail
+    import django.core.mail
     import traceback
+    
+    # Try using configured settings first
     try:
         send_mail(
             subject="SMTP Live Test from Portfolio",
@@ -141,17 +144,49 @@ def test_email(request):
         )
         return HttpResponse("Email sent successfully to " + settings.CONTACT_ALERT_EMAIL)
     except Exception as e:
-        debug_info = (
-            f"Debug Info:\n"
-            f"- Host: {settings.EMAIL_HOST}\n"
-            f"- Port: {settings.EMAIL_PORT}\n"
-            f"- User: {settings.EMAIL_HOST_USER} (len: {len(settings.EMAIL_HOST_USER)})\n"
-            f"- Pass prefix: {settings.EMAIL_HOST_PASSWORD[:8]}... (len: {len(settings.EMAIL_HOST_PASSWORD)})\n"
-            f"- Recipient: {settings.CONTACT_ALERT_EMAIL}\n\n"
+        configured_error = traceback.format_exc()
+        
+    # Try local SMTP fallback
+    try:
+        from django.core.mail.backends.smtp import EmailBackend
+        local_backend = EmailBackend(
+            host='localhost',
+            port=25,
+            username='',
+            password='',
+            use_tls=False,
+            use_ssl=False,
+            timeout=10
         )
-        return HttpResponse(
-            debug_info + "Failed to send email:\n\n" + traceback.format_exc(),
-            content_type="text/plain"
+        msg = django.core.mail.EmailMessage(
+            subject="Local SMTP Fallback Test",
+            body="If you see this, local SMTP (localhost:25) is working perfectly on cPanel!",
+            from_email='noreply@smartbizcoach.com.ng',
+            to=[settings.CONTACT_ALERT_EMAIL]
         )
+        local_backend.send_messages([msg])
+        local_succeeded = True
+    except Exception as e:
+        local_error = traceback.format_exc()
+        local_succeeded = False
+        
+    if local_succeeded:
+        return HttpResponse("Brevo SMTP failed, but Local SMTP (localhost:25) succeeded! You can switch to Local SMTP.")
+        
+    debug_info = (
+        f"Debug Info:\n"
+        f"- Host: {settings.EMAIL_HOST}\n"
+        f"- Port: {settings.EMAIL_PORT}\n"
+        f"- User: {settings.EMAIL_HOST_USER} (len: {len(settings.EMAIL_HOST_USER)})\n"
+        f"- Pass prefix: {settings.EMAIL_HOST_PASSWORD[:8]}... (len: {len(settings.EMAIL_HOST_PASSWORD)})\n"
+        f"- Recipient: {settings.CONTACT_ALERT_EMAIL}\n\n"
+    )
+    return HttpResponse(
+        debug_info + 
+        "=== Configured SMTP Error ===\n" + configured_error + "\n\n" +
+        "=== Local SMTP Error ===\n" + local_error,
+        content_type="text/plain"
+    )
+
 
 
