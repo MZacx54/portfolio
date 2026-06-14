@@ -141,8 +141,17 @@ def test_email(request):
         )
         return HttpResponse("Email sent successfully to " + settings.CONTACT_ALERT_EMAIL)
     except Exception as e:
+        debug_info = (
+            f"Debug Info:\n"
+            f"- Host: {settings.EMAIL_HOST}\n"
+            f"- Port: {settings.EMAIL_PORT}\n"
+            f"- User: {settings.EMAIL_HOST_USER} (len: {len(settings.EMAIL_HOST_USER)})\n"
+            f"- Pass prefix: {settings.EMAIL_HOST_PASSWORD[:8]}... (len: {len(settings.EMAIL_HOST_PASSWORD)})\n"
+            f"- Recipient: {settings.CONTACT_ALERT_EMAIL}\n\n"
+        )
         return HttpResponse(
-            "Failed to send email:\n\n" + traceback.format_exc(),
+            debug_info + "Failed to send email:\n\n" + traceback.format_exc(),
             content_type="text/plain"
         )
+
 
