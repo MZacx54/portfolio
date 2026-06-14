@@ -126,3 +126,23 @@ def download_resume(request):
     response = HttpResponse(fallback_text, content_type='text/plain')
     response['Content-Disposition'] = 'attachment; filename="Zachariah_Meshach_Resume.txt"'
     return response
+
+
+def test_email(request):
+    from django.core.mail import send_mail
+    import traceback
+    try:
+        send_mail(
+            subject="SMTP Live Test from Portfolio",
+            message="If you see this, SMTP is working perfectly!",
+            from_email=None,
+            recipient_list=[settings.CONTACT_ALERT_EMAIL],
+            fail_silently=False,
+        )
+        return HttpResponse("Email sent successfully to " + settings.CONTACT_ALERT_EMAIL)
+    except Exception as e:
+        return HttpResponse(
+            "Failed to send email:\n\n" + traceback.format_exc(),
+            content_type="text/plain"
+        )
+
