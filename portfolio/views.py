@@ -79,6 +79,24 @@ def contact_submit(request):
             )
         except Exception as e:
             logger.error(f"Failed to send email alert: {e}", exc_info=True)
+            # Try fallback to localhost:25 (cPanel's built-in Exim mailer)
+            try:
+                from django.core.mail.backends.smtp import EmailBackend
+                import django.core.mail
+                local_backend = EmailBackend(host='localhost', port=25, username='', password='', use_tls=False, use_ssl=False, timeout=10)
+                msg = django.core.mail.EmailMessage(
+                    subject=f"New Portfolio Lead: {message_instance.subject}",
+                    body=f"You have received a new contact message from your portfolio website.\n\n"
+                         f"Name: {message_instance.name}\n"
+                         f"Email: {message_instance.email}\n\n"
+                         f"Message:\n{message_instance.message}",
+                    from_email='noreply@smartbizcoach.com.ng',
+                    to=[settings.CONTACT_ALERT_EMAIL],
+                )
+                local_backend.send_messages([msg])
+                logger.info("Email sent successfully using local SMTP fallback.")
+            except Exception as fallback_e:
+                logger.error(f"Failed to send email alert via local fallback: {fallback_e}", exc_info=True)
 
 
         return JsonResponse({
