@@ -36,13 +36,13 @@ def index(request):
         'personal_info': {
             'name': 'Zachariah Meshach',
             'degree': 'B.Tech.',
-            'title': 'Innovative Full-Stack Web Developer',
+            'title': 'Full-Stack Web Developer & Digital Marketing Strategist',
             'email': 'meshachzax@gmail.com',
             'mobile1': '09064556107',
             'mobile2': '08021460391',
             'address': 'NO. 35 Adjacent Deeper Life, Sabon Kaura, ATBU Yelwa Bauchi, Bauchi State, Nigeria',
             'github': 'https://github.com/MZacx54',
-            'bio': 'Innovative B.Tech Medical Biochemistry graduate turned Full-Stack Web Developer. Highly skilled in building robust back-ends using Python and Django, and styling beautiful, responsive front-ends with HTML, CSS, JavaScript, and CMS (WordPress/Elementor). Adept at project management, customer relations, and analytical problem-solving, with a results-oriented mindset that drives digital innovation.'
+            'bio': 'Results-driven Full-Stack Web Developer and Digital Marketing Strategist with a proven track record of building scalable web applications and orchestrating AI-driven marketing campaigns. Expertise in developing robust backends (Python, Django) and responsive, dynamic frontends using modern frameworks like React, Next.js, Tailwind CSS, and Bootstrap. Adept at leveraging Generative Engine Optimization (GEO), Google Ads, Meta Business Suite, and Prompt Engineering to drive organic growth and maximize ROI. I combine deep analytical problem-solving skills with a creative mindset to deliver end-to-end digital solutions.'
         }
     }
     return render(request, 'portfolio/index.html', context)
@@ -206,5 +206,16 @@ def test_email(request):
         content_type="text/plain"
     )
 
-
-
+def update_live_db(request):
+    import sys
+    import os
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if base_dir not in sys.path:
+        sys.path.append(base_dir)
+    try:
+        import init_db
+        msg = init_db.seed_database()
+        return HttpResponse("SUCCESS: " + str(msg))
+    except Exception as e:
+        import traceback
+        return HttpResponse("ERROR: " + traceback.format_exc(), status=500)
