@@ -124,7 +124,7 @@ def download_resume(request):
             return response
             
     # If not found in media, let's look in static
-    static_path = os.path.join(settings.BASE_DIR, 'static', 'portfolio', 'resume.pdf')
+    static_path = os.path.join(settings.BASE_DIR, 'portfolio', 'static', 'portfolio', 'resume.pdf')
     if os.path.exists(static_path):
         with open(static_path, 'rb') as pdf:
             response = HttpResponse(pdf.read(), content_type='application/pdf')
