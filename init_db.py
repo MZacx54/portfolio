@@ -38,12 +38,14 @@ def seed_database():
         {'category': 'web_dev', 'name': 'React & Next.js', 'proficiency': 90, 'icon_class': 'fab fa-react', 'order': 2},
         {'category': 'web_dev', 'name': 'Tailwind CSS & Bootstrap', 'proficiency': 92, 'icon_class': 'fab fa-css3-alt', 'order': 3},
         {'category': 'web_dev', 'name': 'RESTful APIs & PostgreSQL', 'proficiency': 88, 'icon_class': 'fas fa-database', 'order': 4},
+        {'category': 'web_dev', 'name': 'Prompt Engineering & AI Tools', 'proficiency': 92, 'icon_class': 'fas fa-terminal', 'order': 5},
         
         # Digital Marketing
         {'category': 'digital_mkt', 'name': 'GEO & AI Marketing Strategist', 'proficiency': 90, 'icon_class': 'fas fa-robot', 'order': 1},
         {'category': 'digital_mkt', 'name': 'Google Ads & Meta Business Suite', 'proficiency': 88, 'icon_class': 'fas fa-ad', 'order': 2},
-        {'category': 'digital_mkt', 'name': 'Mailchimp & Email Marketing', 'proficiency': 85, 'icon_class': 'fas fa-envelope-open-text', 'order': 3},
-        {'category': 'digital_mkt', 'name': 'Prompt Engineering', 'proficiency': 92, 'icon_class': 'fas fa-terminal', 'order': 4},
+        {'category': 'digital_mkt', 'name': 'SEO & Content Strategy', 'proficiency': 87, 'icon_class': 'fas fa-search', 'order': 3},
+        {'category': 'digital_mkt', 'name': 'Marketing Analytics (GA4 & CRO)', 'proficiency': 83, 'icon_class': 'fas fa-chart-line', 'order': 4},
+        {'category': 'digital_mkt', 'name': 'Email Marketing & CRM Automation', 'proficiency': 85, 'icon_class': 'fas fa-envelope-open-text', 'order': 5},
         
         # Creative Design & CMS
         {'category': 'design', 'name': 'WordPress & Elementor', 'proficiency': 90, 'icon_class': 'fab fa-wordpress', 'order': 1},
