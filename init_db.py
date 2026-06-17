@@ -48,7 +48,9 @@ def seed_database():
         # Creative Design & CMS
         {'category': 'design', 'name': 'WordPress & Elementor', 'proficiency': 90, 'icon_class': 'fab fa-wordpress', 'order': 1},
         {'category': 'design', 'name': 'Adobe Photoshop', 'proficiency': 85, 'icon_class': 'fas fa-palette', 'order': 2},
-        {'category': 'design', 'name': 'Content Creation', 'proficiency': 80, 'icon_class': 'fas fa-pen-nib', 'order': 3},
+        {'category': 'design', 'name': 'Corel Draw', 'proficiency': 80, 'icon_class': 'fas fa-bezier-curve', 'order': 3},
+        {'category': 'design', 'name': 'Canva', 'proficiency': 85, 'icon_class': 'fas fa-object-group', 'order': 4},
+        {'category': 'design', 'name': 'Content Creation', 'proficiency': 80, 'icon_class': 'fas fa-pen-nib', 'order': 5},
         
         # Soft Skills
         {'category': 'soft_skills', 'name': 'Analytical & Problem Solving', 'proficiency': 95, 'icon_class': 'fas fa-brain', 'order': 1},
