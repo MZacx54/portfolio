@@ -83,6 +83,15 @@ def seed_database():
             'live_url': 'https://www.judsci.org.ng/',
             'icon_class': 'fas fa-hand-holding-heart',
             'order': 2
+        },
+        {
+            'name': 'Personal Portfolio Platform',
+            'description': 'A dynamic, dark-themed personal portfolio website. Features a custom Django backend with SQLite, optimized SEO architecture, modern UI animations, and automated deployment pipelines.',
+            'tech_stack': 'Django, Python, HTML5, Vanilla CSS',
+            'github_url': 'MZacx54/portfolio',
+            'live_url': 'https://portfolio.smartbizcoach.com.ng/',
+            'icon_class': 'fas fa-id-card',
+            'order': 3
         }
     ]
     

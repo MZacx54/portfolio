@@ -42,7 +42,8 @@ def index(request):
             'mobile2': '08021460391',
             'address': 'NO. 35 Adjacent Deeper Life, Sabon Kaura, ATBU Yelwa Bauchi, Bauchi State, Nigeria',
             'github': 'https://github.com/MZacx54',
-            'bio': 'Results-driven Full-Stack Web Developer and Digital Marketing Strategist with a proven track record of building scalable web applications and orchestrating AI-driven marketing campaigns. Expertise in developing robust backends (Python, Django) and responsive, dynamic frontends using modern frameworks like React, Next.js, Tailwind CSS, and Bootstrap. Adept at leveraging Generative Engine Optimization (GEO), Google Ads, Meta Business Suite, and Prompt Engineering to drive organic growth and maximize ROI. I combine deep analytical problem-solving skills with a creative mindset to deliver end-to-end digital solutions.'
+            'linkedin': 'https://www.linkedin.com/in/meshach-zachariah-5a578912a/',
+            'bio': 'Results-driven Full-Stack Web Developer and Digital Marketing Strategist with a proven track record of building scalable web applications and orchestrating AI-driven marketing campaigns. Expertise in developing robust backends (Python, Django) and responsive, dynamic frontends using modern frameworks like React, Next.js, Tailwind CSS, and Bootstrap. Adept at leveraging Generative Engine Optimization (GEO), Google Ads, and Meta Business Suite to drive organic growth and maximize ROI. I combine deep analytical problem-solving skills with a creative mindset to deliver end-to-end digital solutions.'
         }
     }
     return render(request, 'portfolio/index.html', context)
