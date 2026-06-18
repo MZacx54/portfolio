@@ -70,7 +70,7 @@ def seed_database():
             'name': 'SmartBiz Coach',
             'description': 'An interactive, AI-driven business coaching platform empowering users with GEO (Generative Engine Optimization) insights, personalized Prompt Engineering recommendations, and digital marketing analytics.',
             'tech_stack': 'React, Next.js, Django, Tailwind CSS, OpenAI API',
-            'github_url': 'MZacx54/Smartbiz',
+            'github_url': 'MZacx54/smartbiz-coach',
             'live_url': 'https://smartbizcoach.com.ng/',
             'icon_class': 'fas fa-robot',
             'order': 1
