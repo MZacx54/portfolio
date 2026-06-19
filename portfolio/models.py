@@ -6,6 +6,7 @@ class Skill(models.Model):
         ('digital_mkt', 'Digital Marketing & SEO'),
         ('design', 'Graphic Design & CMS'),
         ('soft_skills', 'Soft & Transferable Skills'),
+        ('devops', 'DevOps & Cloud Deployment'),
     ]
     
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='web_dev')

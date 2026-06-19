@@ -58,6 +58,13 @@ def seed_database():
         {'category': 'soft_skills', 'name': 'Analytical & Problem Solving', 'proficiency': 95, 'icon_class': 'fas fa-brain', 'order': 1},
         {'category': 'soft_skills', 'name': 'Agile Methodologies', 'proficiency': 90, 'icon_class': 'fas fa-sync', 'order': 2},
         {'category': 'soft_skills', 'name': 'Project Management', 'proficiency': 92, 'icon_class': 'fas fa-tasks', 'order': 3},
+        
+        # DevOps & Cloud
+        {'category': 'devops', 'name': 'Vercel & Railway (Frontend/Backend)', 'proficiency': 90, 'icon_class': 'fas fa-rocket', 'order': 1},
+        {'category': 'devops', 'name': 'Firebase (Hosting, Auth & Firestore)', 'proficiency': 85, 'icon_class': 'fas fa-fire', 'order': 2},
+        {'category': 'devops', 'name': 'Render & Supabase (Backend & DB)', 'proficiency': 85, 'icon_class': 'fas fa-cloud', 'order': 3},
+        {'category': 'devops', 'name': 'cPanel & Shared Hosting (Production)', 'proficiency': 92, 'icon_class': 'fas fa-server', 'order': 4},
+        {'category': 'devops', 'name': 'Git & CI/CD Workflows', 'proficiency': 88, 'icon_class': 'fab fa-git-alt', 'order': 5},
     ]
     
     for skill in skills_data:

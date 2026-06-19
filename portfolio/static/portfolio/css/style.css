@@ -540,6 +540,7 @@ img, svg {
 .card-icon.marketing { background-color: #fef3c7; color: #d97706; }
 .card-icon.design { background-color: #e0f2fe; color: #0284c7; }
 .card-icon.soft { background-color: #d1fae5; color: #059669; }
+.card-icon.devops { background-color: #ede9fe; color: #7c3aed; }
 
 .skill-category-card h3 {
     font-size: 1.25rem;

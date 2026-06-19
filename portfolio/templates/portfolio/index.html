@@ -233,6 +233,42 @@
                     </ul>
                 </div>
 
+                <!-- DevOps & Cloud Deployment Card -->
+                <div class="skill-category-card">
+                    <div class="card-icon devops"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>DevOps & Cloud Deployment</h3>
+                    <ul class="skill-list">
+                        {% if skills_devops %}
+                            {% for skill in skills_devops %}
+                                <li>
+                                    <div class="skill-info">
+                                        <span>{{ skill.name }}</span>
+                                        <span>{{ skill.proficiency }}%</span>
+                                    </div>
+                                    <div class="skill-bar"><div class="fill" style="width: {{ skill.proficiency }}%"></div></div>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li>
+                                <div class="skill-info"><span>Vercel & Railway</span><span>90%</span></div>
+                                <div class="skill-bar"><div class="fill" style="width: 90%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Firebase & Supabase</span><span>85%</span></div>
+                                <div class="skill-bar"><div class="fill" style="width: 85%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Render & cPanel</span><span>92%</span></div>
+                                <div class="skill-bar"><div class="fill" style="width: 92%"></div></div>
+                            </li>
+                            <li>
+                                <div class="skill-info"><span>Git & CI/CD</span><span>88%</span></div>
+                                <div class="skill-bar"><div class="fill" style="width: 88%"></div></div>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>

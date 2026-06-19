@@ -19,6 +19,7 @@ def index(request):
     skills_digital_mkt = skills.filter(category='digital_mkt')
     skills_design = skills.filter(category='design')
     skills_soft_skills = skills.filter(category='soft_skills')
+    skills_devops = skills.filter(category='devops')
     
     # Initialize the contact form
     contact_form = ContactForm()
@@ -28,6 +29,7 @@ def index(request):
         'skills_digital_mkt': skills_digital_mkt,
         'skills_design': skills_design,
         'skills_soft_skills': skills_soft_skills,
+        'skills_devops': skills_devops,
         'projects': projects,
         'experiences': experiences,
         'educations': educations,
