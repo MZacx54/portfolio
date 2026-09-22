@@ -42,6 +42,14 @@
                             <span>LinkedIn Profile</span>
                         </a>
                     </div>
+                    {% if personal_info.google_business %}
+                    <div class="meta-item">
+                        <a href="{{ personal_info.google_business }}" target="_blank" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 0.4rem;" title="SmartBiz Digital Agency (5.0★ on Google)">
+                            <i class="fab fa-google"></i>
+                            <span>SmartBiz Agency (5.0★)</span>
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             

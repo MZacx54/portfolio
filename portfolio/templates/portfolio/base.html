@@ -4,34 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Web Developer Portfolio of Zachariah Meshach, B.Tech. Innovative solutions and bespoke web applications.">
+    <meta name="description" content="Portfolio of Zachariah Meshach – Full-Stack Software Engineer & Digital Marketing Strategist. Founder of SmartBiz Digital Agency. Expert in Django, React, GEO, Google Ads, and Meta Business Suite.">
     
     <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://portfolio.smartbizcoach.com.ng/">
-    <meta property="og:title" content="Zachariah Meshach | Full-Stack Web Developer & Digital Marketing Strategist">
-    <meta property="og:description" content="Professional Web Developer Portfolio of Zachariah Meshach, B.Tech. Innovative solutions and bespoke web applications.">
+    <meta property="og:title" content="Zachariah Meshach | Full-Stack Software Engineer & Digital Marketing Strategist">
+    <meta property="og:description" content="Portfolio of Zachariah Meshach – Full-Stack Software Engineer & Founder of SmartBiz Digital Agency. Django, React, GEO, Google Ads, Meta Ads expert.">
     <meta property="og:image" content="https://portfolio.smartbizcoach.com.ng/static/portfolio/images/profile.webp">
     <meta property="og:image:width" content="600">
     <meta property="og:image:height" content="600">
-    <meta property="og:image:alt" content="Zachariah Meshach - Full-Stack Web Developer">
+    <meta property="og:image:alt" content="Zachariah Meshach - Full-Stack Software Engineer">
     <meta property="og:site_name" content="Zachariah Meshach Portfolio">
 
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://portfolio.smartbizcoach.com.ng/">
-    <meta property="twitter:title" content="Zachariah Meshach | Full-Stack Web Developer & Digital Marketing Strategist">
-    <meta property="twitter:description" content="Professional Web Developer Portfolio of Zachariah Meshach, B.Tech. Innovative solutions and bespoke web applications.">
+    <meta property="twitter:title" content="Zachariah Meshach | Full-Stack Software Engineer & Digital Marketing Strategist">
+    <meta property="twitter:description" content="Portfolio of Zachariah Meshach – Full-Stack Software Engineer & Founder of SmartBiz Digital Agency. Django, React, GEO, Google Ads, Meta Ads expert.">
     <meta property="twitter:image" content="https://portfolio.smartbizcoach.com.ng/static/portfolio/images/profile.webp">
-    <meta property="twitter:image:alt" content="Zachariah Meshach - Full-Stack Web Developer">
+    <meta property="twitter:image:alt" content="Zachariah Meshach - Full-Stack Software Engineer">
 
-    <title>{% block title %}Zachariah Meshach | Full-Stack Web Developer & Digital Marketing Strategist{% endblock %}</title>
+    <title>{% block title %}Zachariah Meshach | Full-Stack Software Engineer & Digital Marketing Strategist{% endblock %}</title>
     
     <!-- SEO: Canonical URL & Robots -->
     <link rel="canonical" href="https://portfolio.smartbizcoach.com.ng/">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Zachariah Meshach">
-    <meta name="keywords" content="Zachariah Meshach, Full-Stack Web Developer, Digital Marketing Strategist, Next.js, React, Django Developer, SEO, GEO, Prompt Engineering, Meta Ads, Python Developer, Nigeria, Bauchi, Portfolio">
+    <meta name="keywords" content="Zachariah Meshach, Full-Stack Software Engineer, Digital Marketing Strategist, SmartBiz Digital Agency, Zacx Digital Agency, Django Developer, React Developer, Next.js, Python Developer, GEO, Generative Engine Optimization, Google Ads, Meta Business Suite, TikTok Marketing, SEO, Local SEO, GA4, CRO, Coursera, Nigeria, Bauchi, Portfolio">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,10 +79,13 @@
         <div class="footer-container">
             <div class="footer-info">
                 <h3>Zachariah Meshach, B.Tech.</h3>
-                <p>Innovative Full-Stack Web Developer & Digital Marketing Strategist</p>
+                <p>Full-Stack Software Engineer & Digital Marketing Strategist</p>
                 <div class="footer-socials">
                     <a href="{{ personal_info.linkedin }}" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     <a href="{{ personal_info.github }}" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    {% if personal_info.google_business %}
+                        <a href="{{ personal_info.google_business }}" target="_blank" aria-label="Google Business Profile" title="SmartBiz Digital Agency (5.0★ on Google)"><i class="fab fa-google"></i></a>
+                    {% endif %}
                     <a href="mailto:{{ personal_info.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     <a href="tel:{{ personal_info.mobile1 }}" aria-label="Phone"><i class="fas fa-phone"></i></a>
                 </div>

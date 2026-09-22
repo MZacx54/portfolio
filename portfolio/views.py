@@ -38,14 +38,15 @@ def index(request):
         'personal_info': {
             'name': 'Zachariah Meshach',
             'degree': 'B.Tech.',
-            'title': 'Full-Stack Web Developer & Digital Marketing Strategist',
+            'title': 'Full-Stack Software Engineer & Digital Marketing Strategist',
             'email': 'meshachzax@gmail.com',
             'mobile1': '09064556107',
             'mobile2': '08021460391',
             'address': 'NO. 35 Adjacent Deeper Life, Sabon Kaura, ATBU Yelwa Bauchi, Bauchi State, Nigeria',
             'github': 'https://github.com/MZacx54',
             'linkedin': 'https://www.linkedin.com/in/meshach-zachariah-5a578912a/',
-            'bio': 'Results-driven Full-Stack Web Developer and Digital Marketing Strategist with a proven track record of building scalable web applications and orchestrating AI-driven marketing campaigns. Expertise in developing robust backends (Python, Django) and responsive, dynamic frontends using modern frameworks like React, Next.js, Tailwind CSS, and Bootstrap. Adept at leveraging Generative Engine Optimization (GEO), Google Ads, and Meta Business Suite to drive organic growth and maximize ROI. I combine deep analytical problem-solving skills with a creative mindset to deliver end-to-end digital solutions.'
+            'google_business': 'https://share.google/teV7OZwWQTruKLTGA',
+            'bio': 'Results-driven Full-Stack Software Engineer and Digital Marketing Strategist with extensive experience building scalable web applications and orchestrating high-ROI, multi-channel growth campaigns. Founder of SmartBiz Digital Agency (formerly Zacx Digital Agency), holding a verified 5.0★ Google Business presence. Expert in engineering robust backends with Python & Django and architecting dynamic frontends using React, Next.js, and Tailwind CSS. Proven track record across international and local markets in Generative Engine Optimization (GEO), Google Ads, Meta Business Suite, and customer engagement strategy.'
         }
     }
     return render(request, 'portfolio/index.html', context)
